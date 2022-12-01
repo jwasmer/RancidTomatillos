@@ -20,9 +20,14 @@ class App extends Component {
 
   render() {
     return (
-      <main className="App">
-        <Tiles tiles={this.state.tiles}/>
-      </main>
+      <>
+        <header className="Header">
+          <p>Header Placeholder</p>
+        </header>
+        <main className="App">
+          <Tiles tiles={this.state.tiles}/>
+        </main>
+      </>
     )
   }
 }
