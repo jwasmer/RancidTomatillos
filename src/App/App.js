@@ -6,11 +6,25 @@ class App extends Component {
     super();
     this.state = {
       detailViewId: null,
-      movies: []
+      tiles: []
     }
   }
 
-  
+  openDetailView = (id) => {
+    this.setState({ detailViewId: id })
+  }
+
+  closeDetailView = () => {
+    this.setState({ detailViewId: null })
+  }
+
+  render() {
+    return (
+      <main className="App">
+        <Tiles tiles={this.state.tiles}/>
+      </main>
+    )
+  }
 }
 
 export default App;
