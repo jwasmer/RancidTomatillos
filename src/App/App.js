@@ -25,7 +25,8 @@ class App extends Component {
           <p>Header Placeholder</p>
         </header>
         <main className="App">
-          <Tiles tiles={this.state.tiles}/>
+          {!this.state.detailViewId && <AllMoviesView tiles={this.state.tiles} openDetailView={this.openDetailView}/>}
+          {this.state.detailViewId && <DetailView movie={this.state.detailViewId} closeDetailView={this.closeDetailView}/>}
         </main>
       </>
     )
