@@ -1,10 +1,11 @@
 import React from "react"
 import "./Tile.css"
 
-function Tile(props) {
+function Tile({ title, img, rating, id, displayMovie }) {
   return (
     <li>
-      Tile here
+      <img src={img} alt={title} onClick={() => displayMovie(id)}/>
+      <p>{rating} ⭐️</p>
     </li>
   )
 }

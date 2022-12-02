@@ -1,0 +1,9 @@
+ul {
+  border: 1px solid black;
+  display: grid;
+  justify-items: center;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(127px, 1fr));
+  padding: 0px;
+  margin: 6% 8%;
+}

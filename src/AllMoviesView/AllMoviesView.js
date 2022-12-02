@@ -3,11 +3,22 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView(props) {
+function AllMoviesView({ allMovies, displayMovie }) {
+
+  const tileComponents = allMovies.map(movie => {
+    return <Tile
+      title={movie.title}
+      img={movie.poster_path}
+      rating={movie.average_rating}
+      id={movie.id}
+      key={movie.id}
+      displayMovie={displayMovie}
+    />
+  })
+
   return (
     <ul>
-      All Movies view here
-      <Tile />
+      {tileComponents}
     </ul>
   )
 }
