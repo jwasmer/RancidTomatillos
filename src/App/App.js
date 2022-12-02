@@ -9,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       detailViewId: null,
-      allMovies: [...testData]
+      movies: [...testData]
     }
   }
 
@@ -22,7 +22,7 @@ class App extends Component {
       <main>
         <h1>Rancid Tomatillos</h1>
         <AllMoviesView 
-          allMovies={this.state.allMovies} 
+          movies={this.state.movies} 
           displayMovie={this.displayMovie}
         />
       </main>

@@ -3,9 +3,9 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView({ allMovies, displayMovie }) {
+function AllMoviesView({ movies, displayMovie }) {
 
-  const tileComponents = allMovies.map(movie => {
+  const tileComponents = movies.map(movie => {
     return <Tile
       title={movie.title}
       img={movie.poster_path}
