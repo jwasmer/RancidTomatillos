@@ -3,9 +3,11 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView({ movies, displayMovie }) {
+function AllMoviesView({ movies, displayMovie, query }) {
+  const displayedMovies = !query ? movies : 
+  movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
 
-  const tileComponents = movies.map(movie => {
+  const tileComponents = displayedMovies.map(movie => {
     return <Tile
       title={movie.title}
       img={movie.poster_path}
