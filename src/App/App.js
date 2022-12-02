@@ -1,36 +1,43 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from "react"
+import "./App.css"
+import testData from "../testData"
+import AllMoviesView from "../AllMoviesView/AllMoviesView"
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
-      detailViewId: null,
-      tiles: []
+      movieId: null,
+      movies: [...testData]
     }
   }
 
   openDetailView = (id) => {
-    this.setState({ detailViewId: id })
+    this.setState({ movieId: id })
   }
 
   closeDetailView = () => {
-    this.setState({ detailViewId: null })
+    this.setState({ movieId: null })
   }
 
   render() {
     return (
       <>
-        <header className="Header">
-          <p>Header Placeholder</p>
+        <header>
+          <h1>Rancid Tomatillos</h1>
         </header>
-        <main className="App">
-          {!this.state.detailViewId && <AllMoviesView tiles={this.state.tiles} openDetailView={this.openDetailView}/>}
-          {this.state.detailViewId && <DetailView movie={this.state.detailViewId} closeDetailView={this.closeDetailView}/>}
+        <main>
+          {!this.state.movieId && <AllMoviesView 
+            movies={this.state.movies} 
+            openDetailView={this.openDetailView}
+          />}
+          {this.state.movieId && <DetailView 
+            movie={this.state.movieId} 
+            closeDetailView={this.closeDetailView}/>}
         </main>
       </>
     )
   }
 }
 
-export default App;
+export default App
