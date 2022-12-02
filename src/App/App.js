@@ -12,11 +12,11 @@ class App extends Component {
     }
   }
 
-  openDetailView = (id) => {
+  displayMovie = (id) => {
     this.setState({ movieId: id })
   }
 
-  closeDetailView = () => {
+  closeMovie = () => {
     this.setState({ movieId: null })
   }
 
@@ -29,11 +29,11 @@ class App extends Component {
         <main>
           {!this.state.movieId && <AllMoviesView 
             movies={this.state.movies} 
-            openDetailView={this.openDetailView}
+            openDetailView={this.openMovieView}
           />}
           {this.state.movieId && <DetailView 
             movie={this.state.movieId} 
-            closeDetailView={this.closeDetailView}/>}
+            closeDetailView={this.closeMovieView}/>}
         </main>
       </>
     )
