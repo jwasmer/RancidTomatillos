@@ -24,7 +24,6 @@ class App extends Component {
 
   updateQuery = input => {
     this.setState({ query: input })
-    console.log(input)
   }
 
   render() {

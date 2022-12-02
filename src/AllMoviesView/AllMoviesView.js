@@ -3,9 +3,9 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView({ movies, displayMovie }) {
-
-  const displayedMovies = movies
+function AllMoviesView({ movies, displayMovie, query }) {
+  const displayedMovies = !query ? movies : 
+  movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
 
   const tileComponents = displayedMovies.map(movie => {
     return <Tile

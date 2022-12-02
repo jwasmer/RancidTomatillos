@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import "./Header.css"
+import logo from "../assets/rt_logo.png"
 
 class Header extends Component {
   constructor() {
@@ -28,7 +29,7 @@ class Header extends Component {
     return (
       <header>
         <div className="header-left">
-          <img src="logo url here"/>
+          <img src={logo}/>
           <h1>Rancid Tomatillos</h1>
         </div>
         <div className="header-right">
