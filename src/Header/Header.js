@@ -13,10 +13,7 @@ class Header extends Component {
   handleChange(e) {
     const { value } = e.target
     this.setState({ search: value })
-  }
-
-  componentDidUpdate() {
-    this.props.filterMovies(this.state.search)
+    this.props.updateQuery(value)
   }
 
   render() {

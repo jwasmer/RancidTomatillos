@@ -5,7 +5,9 @@ import Tile from "../Tile/Tile"
 
 function AllMoviesView({ movies, displayMovie }) {
 
-  const tileComponents = movies.map(movie => {
+  const displayedMovies = movies
+
+  const tileComponents = displayedMovies.map(movie => {
     return <Tile
       title={movie.title}
       img={movie.poster_path}

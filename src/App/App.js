@@ -9,7 +9,8 @@ class App extends Component {
     super()
     this.state = {
       movieId: null,
-      movies: [...testData]
+      movies: [...testData],
+      query: ""
     }
   }
 
@@ -21,7 +22,8 @@ class App extends Component {
     this.setState({ movieId: null })
   }
 
-  filterMovies = input => {
+  updateQuery = input => {
+    this.setState({ query: input })
     console.log(input)
   }
 
@@ -29,13 +31,14 @@ class App extends Component {
     return (
       <>
         <Header 
-          filterMovies={this.filterMovies} 
+          updateQuery={this.updateQuery} 
           movieId={this.state.movieId}
         />
         <main>
           {!this.state.movieId && <AllMoviesView 
             movies={this.state.movies} 
             displayMovie={this.displayMovie}
+            query={this.state.query}
           />}
           {/* {this.state.movieId && <DetailView 
             movie={this.state.movieId} 
