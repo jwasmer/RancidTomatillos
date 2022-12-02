@@ -7,14 +7,19 @@ header {
 }
 
 h1 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  line-height: 15px;
   margin: 0px;
+  
 }
 
 .header-left {
   display: flex;
+  align-items: center;
 }
 
-img {
-  height: 40px;
+.logo {
+  height: 35px;
   width: auto;
 }

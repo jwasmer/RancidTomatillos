@@ -29,8 +29,8 @@ class Header extends Component {
     return (
       <header>
         <div className="header-left">
-          <img src={logo}/>
-          <h1>Rancid Tomatillos</h1>
+          <img className="logo" src={logo}/>
+          <h1>RANCID <br />TOMATILLOS</h1>
         </div>
         <div className="header-right">
           {!this.props.movieId && searchBar}
@@ -38,7 +38,6 @@ class Header extends Component {
       </header>
     )
   }
-
 }
 
 export default Header
