@@ -1,16 +1,33 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from "react"
+import "./App.css"
+import testData from "../testData"
+
+import AllMoviesView from "../AllMoviesView/AllMoviesView"
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       detailViewId: null,
-      movies: []
+      movies: [...testData]
     }
   }
 
-  
+  displayMovie = id => {
+    console.log(id)
+  }
+
+  render() {
+    return (
+      <main>
+        <h1>Rancid Tomatillos</h1>
+        <AllMoviesView 
+          movies={this.state.movies} 
+          displayMovie={this.displayMovie}
+        />
+      </main>
+    )
+  }
 }
 
-export default App;
+export default App

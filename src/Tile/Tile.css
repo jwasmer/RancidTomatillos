@@ -1,0 +1,16 @@
+li {
+  text-align: center;
+  border: 1px solid black;
+  list-style: none;
+  width: 127px;
+  height: 222px;
+}
+
+img {
+  width: 100%;
+}
+
+p {
+  margin: 0px;
+  font-size: .7em;
+}
