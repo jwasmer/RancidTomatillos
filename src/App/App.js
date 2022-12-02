@@ -2,13 +2,15 @@ import React, { Component } from "react"
 import "./App.css"
 import testData from "../testData"
 import AllMoviesView from "../AllMoviesView/AllMoviesView"
+import Header from "../Header/Header"
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       movieId: null,
-      movies: [...testData]
+      movies: [...testData],
+      query: ""
     }
   }
 
@@ -20,20 +22,27 @@ class App extends Component {
     this.setState({ movieId: null })
   }
 
+  updateQuery = input => {
+    this.setState({ query: input })
+  }
+
   render() {
     return (
       <>
-        <header>
-          <h1>Rancid Tomatillos</h1>
-        </header>
+        <Header 
+          updateQuery={this.updateQuery} 
+          movieId={this.state.movieId}
+        />
         <main>
           {!this.state.movieId && <AllMoviesView 
             movies={this.state.movies} 
             displayMovie={this.displayMovie}
+            query={this.state.query}
           />}
-          {this.state.movieId && <DetailView 
+          {/* {this.state.movieId && <DetailView 
             movie={this.state.movieId} 
-            closeMovie={this.closeMovie}/>}
+            closeMovie={this.closeMovie}
+          />} */}
         </main>
       </>
     )

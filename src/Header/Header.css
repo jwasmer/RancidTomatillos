@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 85px;
+  border: 1px solid black;
+}
+
+h1 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  line-height: 15px;
+  margin: 0px;
+  
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 35px;
+  width: auto;
+}
