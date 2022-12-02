@@ -18,13 +18,16 @@ class Header extends Component {
   }
 
   render() {
-    const searchBar = <input 
+    const searchBar = <div>
+    <i className="material-symbols-outlined">search</i>
+    <input 
       type="search" 
       name="search"
       placeholder="search by title" 
       value={this.state.search}
       onChange={(e) => this.handleChange(e)}
     />
+    </div>
 
     return (
       <header>
