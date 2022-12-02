@@ -29,11 +29,11 @@ class App extends Component {
         <main>
           {!this.state.movieId && <AllMoviesView 
             movies={this.state.movies} 
-            openDetailView={this.openMovieView}
+            displayMovie={this.displayMovie}
           />}
           {this.state.movieId && <DetailView 
             movie={this.state.movieId} 
-            closeDetailView={this.closeMovieView}/>}
+            closeMovie={this.closeMovie}/>}
         </main>
       </>
     )
