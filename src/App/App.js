@@ -13,8 +13,16 @@ class App extends Component {
     }
   }
 
-  displayMovie = id => {
-    console.log(id)
+  displayMovie = (id) => {
+    this.setState({ movieId: id })
+  }
+
+  closeMovie = () => {
+    this.setState({ movieId: null })
+  }
+
+  filterMovies = input => {
+    console.log(input)
   }
 
   render() {
@@ -22,16 +30,17 @@ class App extends Component {
       <>
         <Header 
           filterMovies={this.filterMovies} 
-          detailViewId={this.state.detailViewId}
+          movieId={this.state.movieId}
         />
         <main>
           {!this.state.movieId && <AllMoviesView 
             movies={this.state.movies} 
             displayMovie={this.displayMovie}
           />}
-          {this.state.movieId && <DetailView 
+          {/* {this.state.movieId && <DetailView 
             movie={this.state.movieId} 
-            closeMovie={this.closeMovie}/>}
+            closeMovie={this.closeMovie}
+          />} */}
         </main>
       </>
     )

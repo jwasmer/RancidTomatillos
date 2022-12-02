@@ -35,7 +35,7 @@ class Header extends Component {
           <h1>Rancid Tomatillos</h1>
         </div>
         <div className="header-right">
-          {!this.props.detailViewId && searchBar}
+          {!this.props.movieId && searchBar}
         </div>
       </header>
     )
