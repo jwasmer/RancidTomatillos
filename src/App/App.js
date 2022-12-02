@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import "./App.css"
 import testData from "../testData"
-
 import AllMoviesView from "../AllMoviesView/AllMoviesView"
 import Header from "../Header/Header"
 
@@ -9,7 +8,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      detailViewId: null,
+      movieId: null,
       movies: [...testData]
     }
   }
@@ -18,22 +17,23 @@ class App extends Component {
     console.log(id)
   }
 
-  filterMovies = input => {
-    console.log(input)
-  }
-
   render() {
     return (
-      <main>
+      <>
         <Header 
           filterMovies={this.filterMovies} 
           detailViewId={this.state.detailViewId}
         />
-        <AllMoviesView 
-          movies={this.state.movies} 
-          displayMovie={this.displayMovie}
-        />
-      </main>
+        <main>
+          {!this.state.movieId && <AllMoviesView 
+            movies={this.state.movies} 
+            displayMovie={this.displayMovie}
+          />}
+          {this.state.movieId && <DetailView 
+            movie={this.state.movieId} 
+            closeMovie={this.closeMovie}/>}
+        </main>
+      </>
     )
   }
 }
