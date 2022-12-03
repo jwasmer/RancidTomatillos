@@ -1,27 +1,37 @@
-import React from "react";
-import AllMoviesView from "../AllMoviesView/AllMoviesView";
+import React, { Component } from "react"
 import "./DetailView.css"
 
-function DetailView({
-  id,
-  title,
-  poster_path,
-  backdrop_path,
-  release_date,
-  overview,
-  average_rating,
-  genres,
-  name,
-  budget,
-  revenue,
-  runtime,
-  tagline,
-  closeMovie }) {
+class DetailView extends Component {
+  constructor(props) {
+    super(props)
+    this.movieId = this.props.movieId
+    this.closeMovie = this.props.closeMovie
+    this.state = {
+    }
+  }
 
-  return <section className="detail-view">
-    <img src={poster_path} alt={`A poster featuring art for the movie ${title}`}/>
-    
-  </section>
+  componentDidMount() {
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.movieId}`)
+      .then(response => response.json())
+      .then(movieObject => {
+        const data = movieObject.movie
+
+        this.setState({
+          averageRating: data.average_rating,
+          backdropPath: data.backdrop_path,
+          budget: data.budget,
+          genres: data.genres,
+          id: data.id,
+          overview: data.overview,
+          posterPath: data.poster_path,
+          releaseDate: data.release_date,
+          revenue: data.revenue,
+          runtime: data.runtime,
+          tagline: data.tagline,
+          title: data.title
+        })
+      })
+  }
 }
 
 export default DetailView
