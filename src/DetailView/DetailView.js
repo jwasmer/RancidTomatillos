@@ -47,6 +47,7 @@ class DetailView extends Component {
       <p>{this.state.runtime}</p>
       <p>{this.state.tagline}</p>
       <p>{this.state.title}</p>
+      <button onClick={() => {this.closeMovie()}}>Close Movie</button>
     </>
   }
 }
