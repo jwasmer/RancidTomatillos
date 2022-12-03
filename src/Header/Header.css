@@ -61,10 +61,6 @@ input::placeholder {
   color: rgb(184, 184, 184);
 }
 
-input:focus {
-  outline-style: none;
-}
-
 i {
   color: white;
   position: absolute;

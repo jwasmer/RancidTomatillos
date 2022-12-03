@@ -12,10 +12,16 @@ class Header extends Component {
     }
   }
 
-  handleChange(e) {
+  handleChange = e => {
     const { value } = e.target
     this.setState({ search: value })
     this.props.updateQuery(value)
+  }
+
+  handleKeyDown = e => {
+    if (e.key === "Enter") {
+      this.setState({ searchHidden: false })
+    }
   }
 
   render() {
@@ -24,6 +30,8 @@ class Header extends Component {
       className={this.state.searchHidden ? `material-symbols-outlined` :
         `material-symbols-outlined icon-transition`}
       onClick={() => this.setState({ searchHidden: false })}
+      onKeyDown={(e) => this.handleKeyDown(e)}
+      tabIndex={1}
     >search</i>
     <input 
       className={this.state.searchHidden ? `search-input` :
@@ -32,6 +40,7 @@ class Header extends Component {
       name="search"
       placeholder="search by title" 
       value={this.state.search}
+      tabIndex={1}
       onChange={(e) => this.handleChange(e)}
     />
     </div>

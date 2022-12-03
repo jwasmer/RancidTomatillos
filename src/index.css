@@ -13,3 +13,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+*:focus {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
