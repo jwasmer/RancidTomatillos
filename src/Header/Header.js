@@ -31,25 +31,26 @@ class Header extends Component {
   }
 
   render() {
-    const searchBar = <div className="input-container">
-    <i 
-      className={this.state.searchHidden ? `material-symbols-outlined` :
-        `material-symbols-outlined icon-transition`}
-      onClick={this.handleIconClick}
-      onKeyDown={(e) => this.handleKeyDown(e)}
-      tabIndex={1}
-    >search</i>
-    <input 
-      className={this.state.searchHidden ? `search-input` :
-      `search-input input-transition`}
-      type="search" 
-      name="search"
-      placeholder="search by title" 
-      value={this.state.search}
-      tabIndex={1}
-      onChange={(e) => this.handleChange(e)}
-      ref={this.state.searchInput}
-    />
+    const searchBar = 
+    <div className="input-container">
+      <i 
+        className={this.state.searchHidden ? `material-symbols-outlined` :
+          `material-symbols-outlined icon-transition`}
+        onClick={this.handleIconClick}
+        onKeyDown={(e) => this.handleKeyDown(e)}
+        tabIndex={1}
+      >search</i>
+      <input 
+        className={this.state.searchHidden ? `search-input` :
+        `search-input input-transition`}
+        type="search" 
+        name="search"
+        placeholder="search by title" 
+        value={this.state.search}
+        tabIndex={1}
+        onChange={(e) => this.handleChange(e)}
+        ref={this.state.searchInput}
+      />
     </div>
 
     const displaySearchOK = !this.props.movieId && !this.props.err
