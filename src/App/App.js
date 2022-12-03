@@ -35,7 +35,7 @@ class App extends Component {
   }
 
   render() {
-    const errorMessage = <h3 className="error">Sorry, something went wrong. Please try again later.</h3>
+    const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
     return (
       <>
