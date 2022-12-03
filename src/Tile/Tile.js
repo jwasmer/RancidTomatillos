@@ -4,7 +4,9 @@ import "./Tile.css"
 function Tile({ title, img, rating, id, displayMovie }) {
   return (
     <li>
-      <img src={img} alt={title} onClick={() => displayMovie(id)}/>
+      <div className="img-container">
+        <img src={img} alt={title} onClick={() => displayMovie(id)}/>
+      </div>
       <p>{rating} ⭐️</p>
     </li>
   )

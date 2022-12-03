@@ -6,8 +6,20 @@ li {
   color: white;
 }
 
+.img-container {
+  overflow: hidden;
+  height: 187px;
+  margin-bottom: 3px;
+}
+
 img {
   width: 100%;
+}
+
+img:hover {
+  transform: scale(1.05);
+  transition-duration: 400ms;
+  cursor: pointer;
 }
 
 p {
