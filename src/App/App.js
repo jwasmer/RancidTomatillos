@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import "./App.css"
-// import testData from "../testData"
 import AllMoviesView from "../AllMoviesView/AllMoviesView"
 import DetailView from "../DetailView/DetailView"
 import Header from "../Header/Header"
