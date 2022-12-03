@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import "./App.css"
 import testData from "../testData"
 import AllMoviesView from "../AllMoviesView/AllMoviesView"
+import DetailView from "../DetailView/DetailView"
 import Header from "../Header/Header"
 
 class App extends Component {
@@ -39,10 +40,10 @@ class App extends Component {
             displayMovie={this.displayMovie}
             query={this.state.query}
           />}
-          {/* {this.state.movieId && <DetailView 
-            movie={this.state.movieId} 
+          {this.state.movieId && <DetailView 
+            movieId={this.state.movieId}
             closeMovie={this.closeMovie}
-          />} */}
+          />}
         </main>
       </>
     )
