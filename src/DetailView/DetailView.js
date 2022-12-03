@@ -32,6 +32,23 @@ class DetailView extends Component {
         })
       })
   }
+
+  render() {
+    return <>
+      <p>{this.movieId}</p>
+      <p>{this.state.averageRating}</p>
+      <img className="backdrop" src={this.state.backdropPath} alt={`Artwork for the movie ${this.state.title}`}/>
+      <p>{this.state.budget}</p>
+      <p>{this.state.genres}</p>
+      <p>{this.state.overview}</p>
+      <img className="poster" src={this.state.posterPath} alt={`Artwork for the movie ${this.state.title}`}/>
+      <p>{this.state.releaseDate}</p>
+      <p>{this.state.revenue}</p>
+      <p>{this.state.runtime}</p>
+      <p>{this.state.tagline}</p>
+      <p>{this.state.title}</p>
+    </>
+  }
 }
 
 export default DetailView
