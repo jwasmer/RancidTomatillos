@@ -41,7 +41,6 @@ li {
   background-color: rgba(0, 0, 0, 0.698);
   z-index: 10;
   animation: fadeIn .5s;
-  /* border: 1px solid red; */
 }
 
 .tile-rating {

@@ -14,8 +14,19 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
       <p>{`(${year.slice(0, 4)})`}</p>
     </div>
 
+  const handleKeyDown = (e, id) => {
+    if (e.key === "Enter") {
+      displayMovie(id)
+    }
+  }
+
   return (
-    <li>
+    <li 
+      tabIndex={1}
+      onFocus={() => setHover(true)}
+      onBlur={() => setHover(false)}
+      onKeyDown={(e) => handleKeyDown(e, id)}
+    >
       <div className="img-container">
         <img 
           className={hovering ? `hover-animation tile-img` : 
@@ -28,7 +39,7 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
         />
         {hovering && overlay}
       </div>
-      <p className="tile-rating">{rating} ⭐️</p>
+      <p className="tile-rating">{rating.toFixed(1)} ⭐️</p>
     </li>
   )
 }
