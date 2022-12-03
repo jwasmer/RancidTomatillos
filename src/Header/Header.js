@@ -11,7 +11,6 @@ class Header extends Component {
       searchHidden: true,
       ref: createRef()
     }
-    console.log(this.state.ref)
   }
 
   handleChange = e => {
