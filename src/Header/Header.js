@@ -58,7 +58,11 @@ class Header extends Component {
     return (
       <header>
         <div className="header-left">
-          <img className="logo" src={logo}/>
+          <img 
+            className="logo" 
+            src={logo}
+            alt="Rancid Tomatillos logo"
+          />
           <h1>RANCID <br />TOMATILLOS</h1>
         </div>
         <div className="header-right">
