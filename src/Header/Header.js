@@ -9,7 +9,7 @@ class Header extends Component {
     this.state = {
       search: "",
       searchHidden: true,
-      ref: createRef()
+      searchInput: createRef()
     }
   }
 
@@ -27,7 +27,7 @@ class Header extends Component {
 
   handleIconClick = () => {
     this.setState({ searchHidden: false })
-    this.state.ref.current.focus()
+    this.state.searchInput.current.focus()
   }
 
   render() {
@@ -48,9 +48,11 @@ class Header extends Component {
       value={this.state.search}
       tabIndex={1}
       onChange={(e) => this.handleChange(e)}
-      ref={this.state.ref}
+      ref={this.state.searchInput}
     />
     </div>
+
+    const displaySearchOK = !this.props.movieId && !this.props.err
 
     return (
       <header>
@@ -59,7 +61,7 @@ class Header extends Component {
           <h1>RANCID <br />TOMATILLOS</h1>
         </div>
         <div className="header-right">
-          {!this.props.movieId && searchBar}
+          {displaySearchOK && searchBar}
         </div>
       </header>
     )
