@@ -7,7 +7,8 @@ class Header extends Component {
   constructor() {
     super()
     this.state = {
-      search: ""
+      search: "",
+      searchHidden: true
     }
   }
 
@@ -19,8 +20,14 @@ class Header extends Component {
 
   render() {
     const searchBar = <div className="input-container">
-    <i className="material-symbols-outlined">search</i>
+    <i 
+      className={this.state.searchHidden ? `material-symbols-outlined` :
+        `material-symbols-outlined icon-transition`}
+      onClick={() => this.setState({ searchHidden: false })}
+    >search</i>
     <input 
+      className={this.state.searchHidden ? `search-input` :
+      `search-input input-transition`}
       type="search" 
       name="search"
       placeholder="search by title" 
