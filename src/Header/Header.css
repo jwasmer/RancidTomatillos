@@ -32,7 +32,7 @@ h1 {
 .input-container {
   position: absolute;
   top: 51px;
-  right: 42px;
+  right: 30px;
   width: 200px;
 }
 
@@ -71,6 +71,7 @@ i {
   right: 42px;
   font-size: 17px !important;
   margin: 4px 0px 0px 2px;
+  cursor: pointer;
   z-index: 10;
   transition: 700ms right;
 }
