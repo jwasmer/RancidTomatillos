@@ -4,20 +4,22 @@ import "./Tile.css"
 function Tile({ title, year, img, rating, id, displayMovie }) {
   const [ hovering, setHover ] = useState(false)
 
-  const overlay = <div 
+  const overlay = 
+    <div 
       className="overlay"
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-    <p>{title}</p>
-    <p>{`(${year.slice(0, 4)})`}</p>
-  </div>
+      <p>{title}</p>
+      <p>{`(${year.slice(0, 4)})`}</p>
+    </div>
 
   return (
     <li>
       <div className="img-container">
         <img 
-          className={hovering ? "hover-animation" : undefined}
+          className={hovering ? `hover-animation tile-img` : 
+            `tile-img`}
           src={img} 
           alt={title} 
           onClick={() => displayMovie(id)}

@@ -13,9 +13,10 @@ li {
   margin-bottom: 3px;
 }
 
-img {
+.tile-img {
   position: absolute;
-  width: 100%;
+  top: 1px;
+  width: 99%;
   left: 0px;
 }
 
@@ -34,12 +35,13 @@ img {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 100%;
+  width: 93%;
   height: 100%;
+  padding: 0px 5px;
   background-color: rgba(0, 0, 0, 0.698);
   z-index: 10;
   animation: fadeIn .5s;
-
+  /* border: 1px solid red; */
 }
 
 .tile-rating {

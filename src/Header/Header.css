@@ -9,7 +9,7 @@ h1 {
   font-family: "Nunito Sans", sans-serif;
   font-size: 1.1em;
   line-height: 17px;
-  margin: 41px 0px 0px 84px;
+  margin: 41px 0px 0px 0px;
   color: #2e930c;
   
 }
@@ -22,7 +22,7 @@ h1 {
 .logo {
   height: 30px;
   width: auto;
-  margin: 20px 5px 0px 49px;
+  margin: 40px 5px 0px 49px;
 }
 
 .header-right {
@@ -32,7 +32,7 @@ h1 {
 
 .input-container {
   position: absolute;
-  top: 40px;
+  top: 51px;
   right: 42px;
 }
 
