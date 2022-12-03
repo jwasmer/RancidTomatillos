@@ -43,9 +43,20 @@ li {
   animation: fadeIn .5s;
 }
 
+.overlay-text {
+  animation: fadeIn .5s;
+}
+
 .tile-rating {
+  position: relative;
   margin: 0px;
   font-size: .7em;
+}
+
+.star {
+  position: absolute;
+  right: 41px;
+  max-height: 12px;
 }
 
 @keyframes fadeIn {

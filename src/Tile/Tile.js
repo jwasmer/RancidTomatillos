@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import "./Tile.css"
 
+import star from "../assets/star.png"
+
 function Tile({ title, year, img, rating, id, displayMovie }) {
   const [ hovering, setHover ] = useState(false)
 
@@ -10,8 +12,8 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <p>{title}</p>
-      <p>{`(${year.slice(0, 4)})`}</p>
+      <p className="overlay-text">{title}</p>
+      <p className="overlay-text">{`(${year.slice(0, 4)})`}</p>
     </div>
 
   const handleKeyDown = (e, id) => {
@@ -39,7 +41,7 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
         />
         {hovering && overlay}
       </div>
-      <p className="tile-rating">{rating.toFixed(1)} ⭐️</p>
+      <p className="tile-rating">{rating.toFixed(1)} <img className="star" src={star}/></p>
     </li>
   )
 }
