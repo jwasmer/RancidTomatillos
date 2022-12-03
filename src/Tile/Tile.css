@@ -7,22 +7,47 @@ li {
 }
 
 .img-container {
+  position: relative;
   overflow: hidden;
   height: 187px;
   margin-bottom: 3px;
 }
 
 img {
+  position: absolute;
   width: 100%;
+  left: 0px;
 }
 
-img:hover {
+.hover-animation {
   transform: scale(1.05);
-  transition-duration: 400ms;
+  transition-duration: .5s;
   cursor: pointer;
+  filter: blur(1px);
+
 }
 
-p {
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.698);
+  z-index: 10;
+  animation: fadeIn .5s;
+
+}
+
+.tile-rating {
   margin: 0px;
   font-size: .7em;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }

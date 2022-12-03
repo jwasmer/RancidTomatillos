@@ -18,7 +18,7 @@ class Header extends Component {
   }
 
   render() {
-    const searchBar = <div>
+    const searchBar = <div className="input-container">
     <i className="material-symbols-outlined">search</i>
     <input 
       type="search" 

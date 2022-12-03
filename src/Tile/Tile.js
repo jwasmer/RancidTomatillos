@@ -1,13 +1,32 @@
-import React from "react"
+import React, { useState } from "react"
 import "./Tile.css"
 
-function Tile({ title, img, rating, id, displayMovie }) {
+function Tile({ title, year, img, rating, id, displayMovie }) {
+  const [ hovering, setHover ] = useState(false)
+
+  const overlay = <div 
+      className="overlay"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+    <p>{title}</p>
+    <p>{`(${year.slice(0, 4)})`}</p>
+  </div>
+
   return (
     <li>
       <div className="img-container">
-        <img src={img} alt={title} onClick={() => displayMovie(id)}/>
+        <img 
+          className={hovering ? "hover-animation" : undefined}
+          src={img} 
+          alt={title} 
+          onClick={() => displayMovie(id)}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
+        />
+        {hovering && overlay}
       </div>
-      <p>{rating} ⭐️</p>
+      <p className="tile-rating">{rating} ⭐️</p>
     </li>
   )
 }

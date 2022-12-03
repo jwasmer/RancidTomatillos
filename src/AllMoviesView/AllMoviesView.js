@@ -10,6 +10,7 @@ function AllMoviesView({ movies, displayMovie, query }) {
   const tileComponents = displayedMovies.map(movie => {
     return <Tile
       title={movie.title}
+      year={movie.release_date}
       img={movie.poster_path}
       rating={movie.average_rating}
       id={movie.id}
