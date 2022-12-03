@@ -28,6 +28,7 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
       onKeyDown={(e) => handleKeyDown(e, id)}
+      onClick={() => displayMovie(id)}
     >
       <div className="img-container">
         <img 
@@ -35,13 +36,14 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
             `tile-img`}
           src={img} 
           alt={title} 
-          onClick={() => displayMovie(id)}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         />
         {hovering && overlay}
       </div>
-      <p className="tile-rating">{rating.toFixed(1)} <img className="star" src={star}/></p>
+      <p className="tile-rating">{rating.toFixed(1)} 
+        <img className="star" src={star}/>
+      </p>
     </li>
   )
 }
