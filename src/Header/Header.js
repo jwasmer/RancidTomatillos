@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, createRef } from "react"
 
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
@@ -8,8 +8,10 @@ class Header extends Component {
     super()
     this.state = {
       search: "",
-      searchHidden: true
+      searchHidden: true,
+      ref: createRef()
     }
+    console.log(this.state.ref)
   }
 
   handleChange = e => {
@@ -20,8 +22,13 @@ class Header extends Component {
 
   handleKeyDown = e => {
     if (e.key === "Enter") {
-      this.setState({ searchHidden: false })
+      this.handleIconClick()
     }
+  }
+
+  handleIconClick = () => {
+    this.setState({ searchHidden: false })
+    this.state.ref.current.focus()
   }
 
   render() {
@@ -29,7 +36,7 @@ class Header extends Component {
     <i 
       className={this.state.searchHidden ? `material-symbols-outlined` :
         `material-symbols-outlined icon-transition`}
-      onClick={() => this.setState({ searchHidden: false })}
+      onClick={this.handleIconClick}
       onKeyDown={(e) => this.handleKeyDown(e)}
       tabIndex={1}
     >search</i>
@@ -42,6 +49,7 @@ class Header extends Component {
       value={this.state.search}
       tabIndex={1}
       onChange={(e) => this.handleChange(e)}
+      ref={this.state.ref}
     />
     </div>
 
