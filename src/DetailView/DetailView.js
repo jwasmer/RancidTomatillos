@@ -8,8 +8,7 @@ class DetailView extends Component {
     super(props)
     this.movieId = this.props.movieId
     this.closeMovie = this.props.closeMovie
-    this.state = {
-    }
+    this.state = {}
   }
 
   componentDidMount() {
@@ -18,7 +17,7 @@ class DetailView extends Component {
       .then(movieObject => {
         const data = movieObject.movie
         const releaseDateObject = new Date(Date.parse(data.release_date))
-        const dateData = `${releaseDateObject.toLocaleString('default', { month: 'long' })} ${releaseDateObject.getDate()}, ${releaseDateObject.getFullYear()}`
+        const dateData = `${releaseDateObject.toLocaleString("default", { month: "long" })} ${releaseDateObject.getDate()}, ${releaseDateObject.getFullYear()}`
         const dateYear = releaseDateObject.getFullYear()
 
         this.setState({
