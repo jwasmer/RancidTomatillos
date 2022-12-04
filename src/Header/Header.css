@@ -14,6 +14,12 @@ h1 {
   pointer-events: none;
 }
 
+.header-left, 
+.header-right {
+  width: 50%;
+  height: 100%;
+}
+
 .header-left {
   display: flex;
   align-items: center;
@@ -27,14 +33,15 @@ h1 {
 
 .header-right {
   padding-right: 25px;
-  height: 100%;
 }
 
 .input-container {
   position: absolute;
   top: 51px;
   right: 30px;
-  width: 200px;
+  /* width: 200px; */
+
+  width: 240px;
 }
 
 input {
@@ -84,4 +91,44 @@ i {
   width: 10px;
   background-image: url(../assets/x-button.png);
   background-size: 10px 10px;
+}
+
+@media (max-width: 475px) {
+
+  header {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .header-left,
+  .header-right {
+    height: 50%;
+    width: 100%;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0px;
+  }
+
+  .input-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 200px;
+  }
+
+  input {
+    margin-right: 0px;
+    float: none;
+    transition: none;
+  }
+
+  .icon-transition {
+    right: 180px;
+    transition: none;
+  }
+
 }
