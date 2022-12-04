@@ -24,21 +24,21 @@ class DetailView extends Component {
         this.setState({
           averageRating: data.average_rating,
           backdropPath: data.backdrop_path,
-          budget: data.budget,
-          genres: data.genres,
+          budget: data.budget.toLocaleString(),
+          genres: data.genres.join(' '),
           id: data.id,
           overview: data.overview,
           posterPath: data.poster_path,
           releaseDate: releaseDateObject,
           dateData: dateData,
           dateYear: dateYear,
-          revenue: data.revenue,
+          revenue: data.revenue.toLocaleString(),
           runtime: data.runtime,
           title: data.title
         })
       })
 
-    fetch(`https://rancid-tomatibackllos.herokuapp.com/api/v2/movies/${this.movieId}/videos`)
+    fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${this.movieId}/videos`)
       .then(response => response.json())
       .then(videoObject => {
         const data = videoObject.videos[0]
@@ -50,7 +50,6 @@ class DetailView extends Component {
         }
       })
   }
-
 
   render() {
     return <>
@@ -67,7 +66,7 @@ url(${this.state.backdropPath})`}}>
           <p className="movie-info">budget: ${this.state.budget}</p>
           <p className="movie-info">box office: ${this.state.revenue}</p>
         </div>
-        <p className="rating">{this.state.averageRating}</p>
+        <p className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
       </section>
       {this.state.videoUrl && <iframe className="video-embed" src={`https://www.youtube.com/embed/${this.state.videoUrl}`} title="Fight Club Trailer - HD" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
     </>
