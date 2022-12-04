@@ -10,7 +10,10 @@
 }
 
 .poster {
-  height: 800px;
+  padding-left: 40px;
+  max-height: 800px;
+  min-height: 400px;
+  height: 80vh;
   width: auto;
 }
 
@@ -48,4 +51,20 @@
   margin-bottom: 8px;
   margin-top: 0px;
   font-size: smaller;
+}
+
+.back-btn {
+  width: 60px;
+  height: 60px;
+  padding: 0px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn-icon {
+  height: 60px;
+  width: 60px;
+  padding: 0px;
+  margin: 0px;
 }
