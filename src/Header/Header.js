@@ -71,12 +71,14 @@ class Header extends Component {
     return (
       <header>
         <div className="header-left">
-          <img 
-            className="logo" 
-            src={logo}
-            alt="Rancid Tomatillos logo"
-          />
-          <h1>RANCID <br />TOMATILLOS</h1>
+          <div className="title-container">
+            <img 
+              className="logo" 
+              src={logo}
+              alt="Rancid Tomatillos logo"
+            />
+            <h1>RANCID <br />TOMATILLOS</h1>
+          </div>
         </div>
         <div className="header-right">
           {displaySearchOK && searchBar}
