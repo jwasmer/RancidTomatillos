@@ -17,7 +17,13 @@ class App extends Component {
 
   componentDidMount() {
     fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-      .then(response => response.json())
+      .then(response => {
+        if (!response.ok) {
+          throw Error(response.ok)
+        } else {
+          return response.json()
+        }
+      })
       .then(({ movies }) => this.setState({ movies: movies}))
       .catch(err => this.setState({ err: err }))
   }
