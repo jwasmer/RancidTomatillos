@@ -9,8 +9,17 @@ class Header extends Component {
     this.state = {
       search: "",
       searchHidden: true,
-      searchInput: createRef()
+      searchInput: createRef(),
+      isMobileDevice: window.matchMedia("(max-width: 475px)").matches
     }
+  }
+
+  componentDidMount() {
+    const handler = e => this.setState({ 
+      isMobileDevice: e.matches,
+      searchHidden: false
+     })
+    window.matchMedia("(max-width: 475px)").addEventListener('change', handler)
   }
 
   handleChange = e => {
@@ -34,15 +43,19 @@ class Header extends Component {
     const searchBar = 
     <div className="input-container">
       <i 
-        className={this.state.searchHidden ? `material-symbols-outlined` :
-          `material-symbols-outlined icon-transition`}
+        className={!this.state.searchHidden ? 
+          `material-symbols-outlined icon-transition` :
+          `material-symbols-outlined`
+        }
         onClick={this.handleIconClick}
         onKeyDown={(e) => this.handleKeyDown(e)}
         tabIndex={1}
       >search</i>
       <input 
-        className={this.state.searchHidden ? `search-input` :
-        `search-input input-transition`}
+        className={!this.state.searchHidden ? 
+          `search-input input-transition` : 
+          `search-input`
+        }
         type="search" 
         name="search"
         placeholder="search by title" 

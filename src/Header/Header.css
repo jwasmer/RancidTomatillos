@@ -39,8 +39,6 @@ h1 {
   position: absolute;
   top: 51px;
   right: 30px;
-  /* width: 200px; */
-
   width: 240px;
 }
 
@@ -126,9 +124,12 @@ i {
     transition: none;
   }
 
+  i {
+    transition: none;
+  }
+
   .icon-transition {
     right: 180px;
-    transition: none;
   }
 
 }
