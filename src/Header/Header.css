@@ -11,6 +11,7 @@ h1 {
   line-height: 17px;
   margin: 41px 0px 0px 0px;
   color: #2e930c;
+  pointer-events: none;
 }
 
 .header-left {

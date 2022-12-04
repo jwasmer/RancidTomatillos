@@ -9,7 +9,7 @@ class Header extends Component {
     this.state = {
       search: "",
       searchHidden: true,
-      ref: createRef()
+      searchInput: createRef()
     }
   }
 
@@ -27,39 +27,46 @@ class Header extends Component {
 
   handleIconClick = () => {
     this.setState({ searchHidden: false })
-    this.state.ref.current.focus()
+    this.state.searchInput.current.focus()
   }
 
   render() {
-    const searchBar = <div className="input-container">
-    <i 
-      className={this.state.searchHidden ? `material-symbols-outlined` :
-        `material-symbols-outlined icon-transition`}
-      onClick={this.handleIconClick}
-      onKeyDown={(e) => this.handleKeyDown(e)}
-      tabIndex={1}
-    >search</i>
-    <input 
-      className={this.state.searchHidden ? `search-input` :
-      `search-input input-transition`}
-      type="search" 
-      name="search"
-      placeholder="search by title" 
-      value={this.state.search}
-      tabIndex={1}
-      onChange={(e) => this.handleChange(e)}
-      ref={this.state.ref}
-    />
+    const searchBar = 
+    <div className="input-container">
+      <i 
+        className={this.state.searchHidden ? `material-symbols-outlined` :
+          `material-symbols-outlined icon-transition`}
+        onClick={this.handleIconClick}
+        onKeyDown={(e) => this.handleKeyDown(e)}
+        tabIndex={1}
+      >search</i>
+      <input 
+        className={this.state.searchHidden ? `search-input` :
+        `search-input input-transition`}
+        type="search" 
+        name="search"
+        placeholder="search by title" 
+        value={this.state.search}
+        tabIndex={1}
+        onChange={(e) => this.handleChange(e)}
+        ref={this.state.searchInput}
+      />
     </div>
+
+    const displaySearchOK = !this.props.movieId && !this.props.err
 
     return (
       <header>
         <div className="header-left">
-          <img className="logo" src={logo}/>
+          <img 
+            className="logo" 
+            src={logo}
+            alt="Rancid Tomatillos logo"
+          />
           <h1>RANCID <br />TOMATILLOS</h1>
         </div>
         <div className="header-right">
-          {!this.props.movieId && searchBar}
+          {displaySearchOK && searchBar}
         </div>
       </header>
     )
