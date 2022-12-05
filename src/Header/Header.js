@@ -9,16 +9,12 @@ class Header extends Component {
     this.state = {
       search: "",
       searchHidden: true,
-      searchInput: createRef(),
-      isMobileDevice: window.matchMedia("(max-width: 475px)").matches
+      searchInput: createRef()
     }
   }
 
   componentDidMount() {
-    const handler = e => this.setState({ 
-      isMobileDevice: e.matches,
-      searchHidden: false
-     })
+    const handler = e => this.setState({ searchHidden: false })
     window.matchMedia("(max-width: 475px)").addEventListener('change', handler)
   }
 
