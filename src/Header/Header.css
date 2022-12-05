@@ -5,36 +5,47 @@ header {
   height: 85px;
 }
 
-h1 {
-  font-family: "Nunito Sans", sans-serif;
-  font-size: 1.1em;
-  line-height: 17px;
-  margin: 41px 0px 0px 0px;
-  color: #2e930c;
-  pointer-events: none;
+.header-left, 
+.header-right {
+  width: 50%;
+  height: 100%;
 }
 
 .header-left {
   display: flex;
+  padding-left: 40px;
+  padding-top: 22px;
+}
+
+.title-container {
+  display: flex;
   align-items: center;
+  width: 152px;
+  justify-content: space-around;
+}
+
+h1 {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 1.1em;
+  line-height: 17px;
+  color: #2e930c;
+  pointer-events: none;
 }
 
 .logo {
   height: 30px;
   width: auto;
-  margin: 40px 5px 0px 49px;
 }
 
 .header-right {
   padding-right: 25px;
-  height: 100%;
 }
 
 .input-container {
   position: absolute;
   top: 51px;
   right: 30px;
-  width: 200px;
+  width: 240px;
 }
 
 input {
@@ -84,4 +95,56 @@ i {
   width: 10px;
   background-image: url(../assets/x-button.png);
   background-size: 10px 10px;
+}
+
+@media (max-width: 475px) {
+
+  header {
+    flex-direction: column;
+    height: 160px;
+  }
+
+  .header-left,
+  .header-right {
+    height: 50%;
+    width: 100%;
+  }
+
+  .header-left {
+    padding: 0px;
+    justify-content: center;
+  }
+
+  .title-container {
+    margin-top: 30px;
+  }
+
+  .header-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 0px;
+  }
+
+  .input-container {
+    position: relative;
+    top: 0px;
+    right: 0px;
+    width: 200px;
+  }
+
+  input {
+    margin-right: 0px;
+    float: none;
+    transition: none;
+  }
+
+  i {
+    transition: none;
+  }
+
+  .icon-transition {
+    right: 180px;
+  }
+
 }
