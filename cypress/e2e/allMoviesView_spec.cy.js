@@ -52,4 +52,10 @@ describe("All Movies View", () => {
       .last().find("div").find("img").invoke("attr", "src").should("eql", "https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg")
   })
 
+  it("should display a message when no movies match the current query", () => {
+    cy.get(".input-container").find("i").click()
+    cy.get(".input-container").find("input").type("foobar")
+    cy.contains("No movies matching your search")
+  })
+
 })

@@ -21,7 +21,8 @@ function AllMoviesView({ movies, displayMovie, query }) {
 
   return (
     <ul>
-      {tileComponents}
+      {tileComponents.length ? tileComponents :
+      <p className="no-matches-message">No movies matching your search</p>}
     </ul>
   )
 }
