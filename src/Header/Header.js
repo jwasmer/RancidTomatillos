@@ -13,11 +13,6 @@ class Header extends Component {
     }
   }
 
-  componentDidMount() {
-    const handler = e => this.setState({ searchHidden: false })
-    window.matchMedia("(max-width: 475px)").addEventListener('change', handler)
-  }
-
   handleChange = e => {
     const { value } = e.target
     this.setState({ search: value })
@@ -39,18 +34,18 @@ class Header extends Component {
     const searchBar = 
     <div className="input-container">
       <i 
-        className={!this.state.searchHidden ? 
-          `material-symbols-outlined icon-transition` :
-          `material-symbols-outlined`
+        className={this.state.searchHidden ? 
+          `material-symbols-outlined` :
+          `material-symbols-outlined icon-transition`
         }
         onClick={this.handleIconClick}
         onKeyDown={(e) => this.handleKeyDown(e)}
         tabIndex={1}
       >search</i>
       <input 
-        className={!this.state.searchHidden ? 
-          `search-input input-transition` : 
-          `search-input`
+        className={this.state.searchHidden ? 
+          `search-input` :
+          `search-input input-transition` 
         }
         type="search" 
         name="search"
