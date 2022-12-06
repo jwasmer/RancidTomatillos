@@ -45,10 +45,11 @@ describe("All Movies View", () => {
       .should("have.value", "c")
   })
 
-  it("should allow text input into the search bar", () => {
+  it("should filter movies by title", () => {
     cy.get(".input-container").find("i").click()
-    cy.get(".input-container").find("input").type("c")
-      .should("have.value", "c")
+    cy.get(".input-container").find("input").type("lan")
+    cy.get("ul").find("li").should("have.length", 2)
+      .last().find("div").find("img").invoke("attr", "src").should("eql", "https://image.tmdb.org/t/p/original//aKx1ARwG55zZ0GpRvU2WrGrCG9o.jpg")
   })
 
 })
