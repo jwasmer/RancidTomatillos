@@ -19,10 +19,13 @@ function AllMoviesView({ movies, displayMovie, query }) {
     />
   })
 
+  const noMatches = !tileComponents.length && query
+  const noMatchesMessage = <p className="no-matches-message">No movies matching your search</p>
+
   return (
     <ul>
-      {tileComponents.length ? tileComponents :
-      <p className="no-matches-message">No movies matching your search</p>}
+      {tileComponents}
+      {noMatches && noMatchesMessage}
     </ul>
   )
 }

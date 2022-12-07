@@ -20,11 +20,17 @@ describe("All Movies View", () => {
 
   it("should render the correct data for the first tile", () => {
     cy.get("ul").find("li").first().find("div").find("img").invoke("attr", "src").should("eql", "https://image.tmdb.org/t/p/original//6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg")
+    cy.get("ul").find("li").first().find(".img-container").trigger("mouseover")
+      .find(".overlay").find("p").first().contains("Money Plane")
+    cy.get("ul").find("li").first().find(".img-container").find(".overlay").find("p").last().contains("(2020)")
     cy.get("ul").find("li").first().find("p").contains("6.9")
   })
 
   it("should render the correct data for the last tile", () => {
     cy.get("ul").find("li").last().find("div").find("img").invoke("attr", "src").should("eql", "https://image.tmdb.org/t/p/original//sDi6wKgECUjDug2gn4uODSqZ3yC.jpg")
+    cy.get("ul").find("li").last().find(".img-container").trigger("mouseover")
+      .find(".overlay").find("p").first().contains("The Crimes That Bind")
+    cy.get("ul").find("li").last().find(".img-container").find(".overlay").find("p").last().contains("(2020)")
     cy.get("ul").find("li").last().find("p").contains("4.9")
   })
 
