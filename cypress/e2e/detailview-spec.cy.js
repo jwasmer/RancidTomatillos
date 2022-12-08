@@ -1,8 +1,8 @@
 describe("Detail View", () => {
   beforeEach(() => {
-    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/", { fixture: "allMovies.json"})
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/", { fixture: "allMovies.json" })
 
-    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", { fixture: 'moneyPlane.json'})
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", { fixture: 'moneyPlane.json' })
 
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401", { fixture: 'mulan.json' })
 
