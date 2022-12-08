@@ -7,13 +7,15 @@ describe("Detail View", () => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401", { fixture: 'mulan.json' })
 
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos", { fixture: 'video.json' })
+  })
 
+  it("Should load AllMoviesView", () => {
     cy.visit("http://localhost:3000/")
   })
 
   it("Should navigate to the URL that matches the id of the movie clicked", () => {
-    cy.get('[data-cy="movie-1"]').click()
-    cy.location("hash").should("equal", "http://localhost:3000/694919")
+    cy.get('[data-cy="694919"]').click()
+    cy.url().should("equal", "http://localhost:3000/694919")
   })
 
   it("Should display a poster image for the movie", () => {
@@ -22,11 +24,11 @@ describe("Detail View", () => {
   })
 
   it("Should have a background image", () => {
-    cy.get('[data-cy="backdrop"]').should("have.css", "background-image", 'url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")')
+    cy.get('[data-cy="backdrop"]').should("have.attr", "style", `background-image: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0.75) 50%, rgb(0, 0, 0) 100%), url("https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg");`)
   })
 
   it("Should link to an embedded trailer video", () => {
-    cy.get('[data-cy="video-embed"]').should("have.attr", "src", "https://www.youtube.com/embed/aETz_dRDEys")
+    cy.get('[data-cy="video-embed"]').should("have.attr", "src", "https://www.youtube.com/embed/https://www.youtube.com/embed/aETz_dRDEys")
   })
 
   it("Should have a title showing the movie name and release year", () => {
@@ -63,12 +65,12 @@ describe("Detail View", () => {
 
   it("Should return you to AllMoviesView when the back button is clicked", () => {
     cy.get('[data-cy="back-btn"]').click()
-    cy.location("hash").should("equal", "http://localhost:3000")
+    cy.url().should("equal", "http://localhost:3000")
   })
 
   it("Should be able to open another DetailView if another movie is selected", () => {
-    cy.get('[data-cy="movie-2"]').click()
-    cy.location("hash").should("equal", "http://localhost:3000/694919")
+    cy.get('[data-cy="337401"]').click()
+    cy.url().should("equal", "http://localhost:3000/337401")
   })
 
   it("Should correctly format genre text when movie has multiple genres", () => {

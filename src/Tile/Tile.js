@@ -24,6 +24,7 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
 
   return (
     <li 
+      data-cy={`${id}`}
       tabIndex={1}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
