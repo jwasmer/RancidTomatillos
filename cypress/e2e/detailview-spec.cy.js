@@ -5,7 +5,7 @@ describe("Detail View", () => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", { fixture: 'moneyPlane.json'})
 
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401", { fixture: 'mulan.json' })
-    
+
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos", { fixture: 'video.json' })
 
     cy.visit("http://localhost:3000/")
@@ -40,7 +40,7 @@ describe("Detail View", () => {
     cy.get('[data-cy="overview"]').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
   })
 
-  it("Should display budget and revenue data if reliable data is available, otherwise it should not display budget or revenue", () => {
+  it("Should not display budget or revenue figures if data is unreliable", () => {
     cy.get('[data-cy="budget"]').should("not.exist")
     cy.get('[data-cy="revenue"]').should("not.exist")
   })
@@ -71,7 +71,12 @@ describe("Detail View", () => {
     cy.location("hash").should("equal", "http://localhost:3000/694919")
   })
 
-  it("Should show the main page background if a backdrop image is unavailable", () => {
-    // Not sure.
+  it("Should correctly format genre text when movie has multiple genres", () => {
+    cy.get('[data-cy="genres"]').contains("Action | Adventure | Drama | Fantasy")
+  })
+
+  it("Should display budget and revenue data if reliable data is available", () => {
+    cy.get('[data-cy="budget"]').contains("$200,000,000")
+    cy.get('[data-cy="revenue"]').contains("$57,000,000")
   })
 })
