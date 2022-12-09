@@ -65,4 +65,8 @@ describe("All Movies View", () => {
     cy.contains("No movies matching your search")
   })
 
+  it("should navigate to the \"movie detail view\" when a movie tile is clicked", () => {
+    cy.get("ul").find("li").first().click()
+    cy.url().should("equal", "http://localhost:3000/694919")
+  })
 })

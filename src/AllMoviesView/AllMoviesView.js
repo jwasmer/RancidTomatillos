@@ -3,7 +3,7 @@ import "./AllMoviesView.css"
 
 import Tile from "../Tile/Tile"
 
-function AllMoviesView({ movies, /* displayMovie, */ query }) {
+function AllMoviesView({ movies, query }) {
   const displayedMovies = !query ? movies : 
   movies.filter(movie => movie.title.toLowerCase().includes(query.toLowerCase()))
 
@@ -15,7 +15,6 @@ function AllMoviesView({ movies, /* displayMovie, */ query }) {
       rating={movie.average_rating}
       id={movie.id}
       key={movie.id}
-      // displayMovie={displayMovie}
     />
   })
 

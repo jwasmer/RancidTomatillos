@@ -1,15 +1,15 @@
 import React, { Component } from "react"
+import { Route } from "react-router-dom"
+
 import "./App.css"
 import AllMoviesView from "../AllMoviesView/AllMoviesView"
 import DetailView from "../DetailView/DetailView"
 import Header from "../Header/Header"
-import { Route } from "react-router-dom"
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      // movieId: null,
       movies: [],
       query: "",
       err: ""
@@ -29,14 +29,6 @@ class App extends Component {
       .catch(err => this.setState({ err: err }))
   }
 
-  // displayMovie = (id) => {
-  //   this.setState({ movieId: id })
-  // }
-
-  // closeMovie = () => {
-  //   this.setState({ movieId: null })
-  // }
-
   updateQuery = input => {
     this.setState({ query: input })
   }
@@ -48,27 +40,21 @@ class App extends Component {
       <>
         <Header 
           updateQuery={this.updateQuery} 
-          // movieId={this.state.movieId}
           err={this.state.err}
         />
         <main>
-          {/* {this.state.movieId && <DetailView 
-            movieId={this.state.movieId}
-            closeMovie={this.closeMovie}
-          />} */}
           {this.state.err && errorMessage}
-        <Route
-          exact path="/:id"
-          render={({match}) => {
-            return <DetailView movieId={match.params.id}/>
-          }}
+          <Route
+            exact path="/:id"
+            render={({ match }) => {
+              return <DetailView movieId={match.params.id} />
+            }}
           />
-        <Route
-          exact path="/"
-          render={() => <AllMoviesView s
-            movies={this.state.movies} 
-            // displayMovie={this.displayMovie}
-            query={this.state.query}
+          <Route
+            exact path="/"
+            render={ () => <AllMoviesView
+              movies={this.state.movies} 
+              query={this.state.query}
             />}
           />
         </main>

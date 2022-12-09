@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
 
@@ -65,6 +66,15 @@ class DetailView extends Component {
   render() {
     const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
+    const videoElement = <iframe 
+        data-cy="video-embed" 
+        className="video-embed" 
+        src={`https://www.youtube.com/embed/${this.state.videoUrl}`} 
+        title={this.state.title} 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen>
+      </iframe>
+
     return <>
       <section 
         data-cy="backdrop"
@@ -72,21 +82,24 @@ class DetailView extends Component {
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%), url(${this.state.backdropPath})`
       }}>
-        <Link to="/"><button 
-          data-cy="back-btn"
-          className="back-btn" 
-          // onClick={() => { this.closeMovie() }}
+        <Link to="/">
+          <button 
+            data-cy="back-btn"
+            className="back-btn" 
           >
             <img 
               className="btn-icon" 
               src={backButton} 
-              alt="An arrow pointing left" />
-        </button></Link>
+              alt="An arrow pointing left" 
+            />
+          </button>
+        </Link>
         <img 
           data-cy="poster"
           className="poster" 
           src={this.state.posterPath} 
-          alt={`Artwork for the movie ${this.state.title}`} />
+          alt={`Artwork for the movie ${this.state.title}`} 
+        />
         <div className="text-container">
           <h2 data-cy="title" className="title">{`${this.state.title} (${this.state.dateYear})`}</h2>
           <h3 data-cy="genres" className="genres">{this.state.genres}</h3>
@@ -115,7 +128,7 @@ class DetailView extends Component {
         <p data-cy="rating" className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
       </section>
 
-      {this.state.videoUrl && <iframe data-cy="video-embed" className="video-embed" src={`https://www.youtube.com/embed/${this.state.videoUrl}`} title={this.state.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
+      {this.state.videoUrl && videoElement}
 
       {this.state.err && errorMessage}
     </>
