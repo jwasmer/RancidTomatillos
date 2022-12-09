@@ -1,17 +1,16 @@
-describe("Detail View", () => {
+describe("Detail View - First Movie", () => {
   beforeEach(() => {
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", { fixture: "allMovies.json" })
 
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919", { fixture: "moneyPlane.json" })
 
-    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401", { fixture: "mulan.json" })
-
     cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos", { fixture: "video.json" })
+
+    cy.visit("http://localhost:3000/")
+    cy.get('[data-cy="694919"]').click()
   })
 
   it("Should navigate to the URL that matches the id of the movie clicked", () => {
-    cy.visit("http://localhost:3000/")
-    cy.get('[data-cy="694919"]').click()
     cy.url().should("equal", "http://localhost:3000/694919")
   })
 
@@ -62,11 +61,23 @@ describe("Detail View", () => {
 
   it("Should return you to AllMoviesView when the back button is clicked", () => {
     cy.get('[data-cy="back-btn"]').click()
-    cy.url().should("equal", "http://localhost:3000")
+    cy.url().should("equal", "http://localhost:3000/")
+  })
+}),
+
+describe("Detail View - Second Movie", () => {
+  beforeEach(() => {
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies", { fixture: "allMovies.json" })
+
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/337401", { fixture: "mulan.json" })
+
+    cy.intercept("GET", "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos", { fixture: "video.json" })
+
+    cy.visit("http://localhost:3000/")
+    cy.get('[data-cy="337401"]').click()
   })
 
   it("Should be able to open another DetailView if another movie is selected", () => {
-    cy.get('[data-cy="337401"]').click()
     cy.url().should("equal", "http://localhost:3000/337401")
   })
 
