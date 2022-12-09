@@ -137,10 +137,13 @@ i {
     margin-right: 0px;
     float: none;
     transition: none;
+    opacity: 1;
+    width: 200px;
   }
 
   i {
     transition: none;
+    right: 180px;
   }
 
   .icon-transition {
