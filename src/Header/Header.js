@@ -31,22 +31,26 @@ class Header extends Component {
   }
 
   render() {
+    const inputClassList = this.state.searchHidden ? 
+    `search-input` :
+    `search-input input-transition` 
+    
+    const iconClassList = this.state.searchHidden ? 
+    `material-symbols-outlined` :
+    `material-symbols-outlined icon-transition`
+
     const searchBar = 
     <div className="input-container">
       <i 
-        className={this.state.searchHidden ? 
-          `material-symbols-outlined` :
-          `material-symbols-outlined icon-transition`
-        }
+        className={iconClassList}
         onClick={this.handleIconClick}
         onKeyDown={(e) => this.handleKeyDown(e)}
         tabIndex={1}
+        role="button"
+        ariaLabel="search movies by title"
       >search</i>
       <input 
-        className={this.state.searchHidden ? 
-          `search-input` :
-          `search-input input-transition` 
-        }
+        className={inputClassList}
         type="search" 
         name="search"
         placeholder="search by title" 
