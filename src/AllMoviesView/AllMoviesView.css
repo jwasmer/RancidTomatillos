@@ -6,3 +6,7 @@ ul {
   padding: 0px;
   margin: 5% 8%;
 }
+
+.no-matches-message {
+  color: white;
+}

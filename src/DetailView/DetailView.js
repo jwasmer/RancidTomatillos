@@ -1,4 +1,6 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom"
+
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
 
@@ -64,53 +66,69 @@ class DetailView extends Component {
   render() {
     const errorMessage = <p className="error">Sorry, something went wrong. Please try again later.</p>
 
+    const videoElement = <iframe 
+        data-cy="video-embed" 
+        className="video-embed" 
+        src={`https://www.youtube.com/embed/${this.state.videoUrl}`} 
+        title={this.state.title} 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowFullScreen>
+      </iframe>
+
     return <>
       <section 
+        data-cy="backdrop"
         className="details-container" 
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%), url(${this.state.backdropPath})`
       }}>
-        <button 
-          className="back-btn" 
-          onClick={() => { this.closeMovie() }}>
+        <Link to="/">
+          <button 
+            data-cy="back-btn"
+            className="back-btn" 
+          >
             <img 
               className="btn-icon" 
               src={backButton} 
-              alt="An arrow pointing left" />
-        </button>
+              alt="An arrow pointing left" 
+            />
+          </button>
+        </Link>
         <img 
+          data-cy="poster"
           className="poster" 
           src={this.state.posterPath} 
-          alt={`Artwork for the movie ${this.state.title}`} />
+          alt={`Artwork for the movie ${this.state.title}`} 
+        />
         <div className="text-container">
-          <h2 className="title">{`${this.state.title} (${this.state.dateYear})`}</h2>
-          <h3 className="genres">{this.state.genres}</h3>
-          <p className="overview">{this.state.overview}</p>
-          <table>
+          <h2 data-cy="title" className="title">{`${this.state.title} (${this.state.dateYear})`}</h2>
+          <h3 data-cy="genres" className="genres">{this.state.genres}</h3>
+          <p data-cy="overview" className="overview">{this.state.overview}</p>
+          <table data-cy="info-table">
             <tbody>
               <tr>
                 <td className="movie-info">runtime: </td>
-                <td className="movie-info">{this.state.runtime} minutes</td>
+                <td data-cy="runtime" className="movie-info">{this.state.runtime} minutes</td>
               </tr>
               <tr>
                 <td className="movie-info">release date: </td>
-                <td className="movie-info">{this.state.dateData}</td>
+                <td data-cy="release-date" className="movie-info">{this.state.dateData}</td>
               </tr>
               <tr>
                 <td className="movie-info">budget: </td>
-                <td className="movie-info">${this.state.budget}</td>
+                <td data-cy="budget" className="movie-info">${this.state.budget}</td>
               </tr>
               <tr>
                 <td className="movie-info">box office: </td>
-                <td className="movie-info">${this.state.revenue}</td>
+                <td data-cy="revenue" className="movie-info">${this.state.revenue}</td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
+        <p data-cy="rating" className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
       </section>
 
-      {this.state.videoUrl && <iframe className="video-embed" src={`https://www.youtube.com/embed/${this.state.videoUrl}`} title={this.state.title} frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>}
+      {this.state.videoUrl && videoElement}
 
       {this.state.err && errorMessage}
     </>
