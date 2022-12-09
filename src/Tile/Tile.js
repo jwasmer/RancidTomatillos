@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import "./Tile.css"
 
 import star from "../assets/star.png"
@@ -17,14 +17,21 @@ function Tile({ title, year, img, rating, id }) {
       <p className="overlay-text">{`(${year.slice(0, 4)})`}</p>
     </div>
 
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.firstChild.click()
+    }
+  }
+
   return (
-    <Link to={`/${id}`}>
-      <li 
+    <li 
       data-cy={`${id}`}
       tabIndex={1}
+      onKeyDown={e => handleKeyDown(e)}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
       >
+      <Link to={`/${id}`}>
         <div className="img-container">
           <img 
             className={hovering ? `hover-animation tile-img` : 
@@ -36,11 +43,11 @@ function Tile({ title, year, img, rating, id }) {
           />
           {hovering && overlay}
         </div>
-        <p className="tile-rating">{rating.toFixed(1)} 
-          <img className="star" src={star}/>
-        </p>
-      </li>
-    </Link>
+      </Link>
+      <p className="tile-rating">{rating.toFixed(1)} 
+        <img className="star" src={star}/>
+      </p>
+    </li>
   )
 }
 

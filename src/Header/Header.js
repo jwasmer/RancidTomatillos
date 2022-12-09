@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react"
-
+import { Link } from "react-router-dom"
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
 
@@ -62,14 +62,14 @@ class Header extends Component {
     return (
       <header>
         <div className="header-left">
-          <div className="title-container">
+          <Link to="/" className="title-container">
             <img 
               className="logo" 
               src={logo}
               alt="Rancid Tomatillos logo"
             />
             <h1>RANCID <br />TOMATILLOS</h1>
-          </div>
+          </Link>
         </div>
         <div className="header-right">
           {displaySearchOK && searchBar}

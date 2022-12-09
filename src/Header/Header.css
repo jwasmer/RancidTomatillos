@@ -20,8 +20,11 @@ header {
 .title-container {
   display: flex;
   align-items: center;
-  width: 152px;
   justify-content: space-around;
+  text-decoration: none;
+  width: 152px;
+  height: 43px;
+  margin: 22px 0px;
 }
 
 h1 {
@@ -29,7 +32,6 @@ h1 {
   font-size: 1.1em;
   line-height: 17px;
   color: #2e930c;
-  pointer-events: none;
 }
 
 .logo {
