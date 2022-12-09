@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { Link } from "react-router-dom";
 import "./DetailView.css"
 import backButton from "../assets/back-button.png"
 
@@ -71,15 +72,16 @@ class DetailView extends Component {
         style={{
           backgroundImage: `linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,1) 100%), url(${this.state.backdropPath})`
       }}>
-        <button 
+        <Link to="/"><button 
           data-cy="back-btn"
           className="back-btn" 
-          onClick={() => { this.closeMovie() }}>
+          // onClick={() => { this.closeMovie() }}
+          >
             <img 
               className="btn-icon" 
               src={backButton} 
               alt="An arrow pointing left" />
-        </button>
+        </button></Link>
         <img 
           data-cy="poster"
           className="poster" 
