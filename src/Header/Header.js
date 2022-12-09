@@ -32,12 +32,12 @@ class Header extends Component {
 
   render() {
     const inputClassList = this.state.searchHidden ? 
-    `search-input` :
-    `search-input input-transition` 
-    
+      `search-input` :
+      `search-input input-transition` 
+
     const iconClassList = this.state.searchHidden ? 
-    `material-symbols-outlined` :
-    `material-symbols-outlined icon-transition`
+      `material-symbols-outlined` :
+      `material-symbols-outlined icon-transition`
 
     const searchBar = 
     <div className="input-container">
