@@ -1,9 +1,10 @@
 import React, { useState } from "react"
+import { Link } from 'react-router-dom';
 import "./Tile.css"
 
 import star from "../assets/star.png"
 
-function Tile({ title, year, img, rating, id, displayMovie }) {
+function Tile({ title, year, img, rating, id/* , displayMovie */ }) {
   const [ hovering, setHover ] = useState(false)
 
   const overlay = 
@@ -16,19 +17,20 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
       <p className="overlay-text">{`(${year.slice(0, 4)})`}</p>
     </div>
 
-  const handleKeyDown = (e, id) => {
-    if (e.key === "Enter") {
-      displayMovie(id)
-    }
-  }
+  // const handleKeyDown = (e, id) => {
+  //   if (e.key === "Enter") {
+  //     displayMovie(id)
+  //   }
+  // }
 
   return (
-    <li 
+    <Link to={`/${id}`}><li 
+      data-cy={`${id}`}
       tabIndex={1}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
-      onKeyDown={(e) => handleKeyDown(e, id)}
-      onClick={() => displayMovie(id)}
+      // onKeyDown={(e) => handleKeyDown(e, id)}
+      // onClick={() => displayMovie(id)}
     >
       <div className="img-container">
         <img 
@@ -44,7 +46,7 @@ function Tile({ title, year, img, rating, id, displayMovie }) {
       <p className="tile-rating">{rating.toFixed(1)} 
         <img className="star" src={star}/>
       </p>
-    </li>
+    </li></Link>
   )
 }
 
