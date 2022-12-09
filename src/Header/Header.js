@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react"
-import { Link } from "react-router-dom"
+import { Link, Route } from "react-router-dom"
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
 
@@ -47,7 +47,7 @@ class Header extends Component {
         onKeyDown={(e) => this.handleKeyDown(e)}
         tabIndex={1}
         role="button"
-        ariaLabel="search movies by title"
+        aria-label="search movies by title"
       >search</i>
       <input 
         className={inputClassList}
@@ -60,8 +60,6 @@ class Header extends Component {
         ref={this.state.searchInput}
       />
     </div>
-
-    const displaySearchOK = !this.props.movieId && !this.props.err
 
     return (
       <header>
@@ -76,7 +74,7 @@ class Header extends Component {
           </Link>
         </div>
         <div className="header-right">
-          {displaySearchOK && searchBar}
+          <Route exact path="/" render={ () => searchBar} />
         </div>
       </header>
     )
