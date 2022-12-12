@@ -30,7 +30,8 @@ class DetailView extends Component {
         this.setState({
           averageRating: data.average_rating,
           backdropPath: data.backdrop_path,
-          budget: data.budget.toLocaleString(),
+          budget: data.budget,
+          displayedBudget: data.budget.toLocaleString(),
           genres: data.genres.join(" | "),
           id: data.id,
           overview: data.overview,
@@ -38,7 +39,8 @@ class DetailView extends Component {
           releaseDate: releaseDateObject,
           dateData: dateData,
           dateYear: dateYear,
-          revenue: data.revenue.toLocaleString(),
+          revenue: data.revenue,
+          displayedRevenue: data.revenue.toLocaleString(),
           runtime: data.runtime,
           title: data.title
         })
@@ -116,11 +118,11 @@ class DetailView extends Component {
               </tr>
               <tr>
                 <td className="movie-info">budget: </td>
-                <td data-cy="budget" className="movie-info">${this.state.budget}</td>
+                {this.state.budget ? <td data-cy="budget" className="movie-info">${this.state.displayedBudget}</td> : <td data-cy="budget" className="movie-info">unavailable</td>}
               </tr>
               <tr>
                 <td className="movie-info">box office: </td>
-                <td data-cy="revenue" className="movie-info">${this.state.revenue}</td>
+                {this.state.revenue ? <td data-cy="revenue" className="movie-info">${this.state.displayedRevenue}</td> : <td data-cy="revenue" className="movie-info">unavailable</td>}
               </tr>
             </tbody>
           </table>
