@@ -1,5 +1,5 @@
 import React, { Component, createRef } from "react"
-
+import { Link, Route } from "react-router-dom"
 import "./Header.css"
 import logo from "../assets/rt_logo.png"
 
@@ -31,22 +31,26 @@ class Header extends Component {
   }
 
   render() {
+    const inputClassList = this.state.searchHidden ? 
+      `search-input` :
+      `search-input input-transition` 
+
+    const iconClassList = this.state.searchHidden ? 
+      `material-symbols-outlined` :
+      `material-symbols-outlined icon-transition`
+
     const searchBar = 
     <div className="input-container">
       <i 
-        className={this.state.searchHidden ? 
-          `material-symbols-outlined` :
-          `material-symbols-outlined icon-transition`
-        }
+        className={iconClassList}
         onClick={this.handleIconClick}
         onKeyDown={(e) => this.handleKeyDown(e)}
         tabIndex={1}
+        role="button"
+        aria-label="search movies by title"
       >search</i>
       <input 
-        className={this.state.searchHidden ? 
-          `search-input` :
-          `search-input input-transition` 
-        }
+        className={inputClassList}
         type="search" 
         name="search"
         placeholder="search by title" 
@@ -57,22 +61,20 @@ class Header extends Component {
       />
     </div>
 
-    const displaySearchOK = !this.props.movieId && !this.props.err
-
     return (
       <header>
         <div className="header-left">
-          <div className="title-container">
+          <Link to="/" className="title-container">
             <img 
               className="logo" 
               src={logo}
               alt="Rancid Tomatillos logo"
             />
             <h1>RANCID <br />TOMATILLOS</h1>
-          </div>
+          </Link>
         </div>
         <div className="header-right">
-          {displaySearchOK && searchBar}
+          <Route exact path="/" render={ () => searchBar} />
         </div>
       </header>
     )

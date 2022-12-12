@@ -1,11 +1,17 @@
 import React, { useState } from "react"
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import "./Tile.css"
 
 import star from "../assets/star.png"
 
 function Tile({ title, year, img, rating, id }) {
   const [ hovering, setHover ] = useState(false)
+
+  const handleKeyDown = e => {
+    if (e.key === "Enter") {
+      e.target.firstChild.click()
+    }
+  }
 
   const overlay = 
     <div 
@@ -17,18 +23,22 @@ function Tile({ title, year, img, rating, id }) {
       <p className="overlay-text">{`(${year.slice(0, 4)})`}</p>
     </div>
 
+  const imageClassList = hovering ? 
+    `hover-animation tile-img` : 
+    `tile-img`
+
   return (
-    <Link to={`/${id}`}>
-      <li 
+    <li 
       data-cy={`${id}`}
-      tabIndex={1}
+      tabIndex={2}
+      onKeyDown={e => handleKeyDown(e)}
       onFocus={() => setHover(true)}
       onBlur={() => setHover(false)}
       >
+      <Link to={`/${id}`}>
         <div className="img-container">
           <img 
-            className={hovering ? `hover-animation tile-img` : 
-              `tile-img`}
+            className={imageClassList}
             src={img} 
             alt={title} 
             onMouseEnter={() => setHover(true)}
@@ -36,11 +46,11 @@ function Tile({ title, year, img, rating, id }) {
           />
           {hovering && overlay}
         </div>
-        <p className="tile-rating">{rating.toFixed(1)} 
-          <img className="star" src={star}/>
-        </p>
-      </li>
-    </Link>
+      </Link>
+      <p className="tile-rating">{rating.toFixed(1)} 
+        <img className="star" src={star}/>
+      </p>
+    </li>
   )
 }
 

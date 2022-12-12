@@ -44,6 +44,7 @@ li {
 }
 
 .overlay-text {
+  color: white;
   animation: fadeIn .5s;
 }
 
