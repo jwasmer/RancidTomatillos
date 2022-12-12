@@ -9,7 +9,9 @@ class DetailView extends Component {
     super(props)
     this.movieId = this.props.movieId
     this.closeMovie = this.props.closeMovie
-    this.state = {}
+    this.state = {
+      loadingComplete: false
+    }
   }
 
   componentDidMount() {
@@ -28,6 +30,7 @@ class DetailView extends Component {
         const dateYear = releaseDateObject.getFullYear()
 
         this.setState({
+          loadingComplete: true,
           averageRating: data.average_rating,
           backdropPath: data.backdrop_path,
           budget: data.budget,
@@ -78,7 +81,7 @@ class DetailView extends Component {
       </iframe>
 
     return <>
-      <section 
+      {this.state.loadingComplete && <section 
         data-cy="backdrop"
         className="details-container" 
         style={{
@@ -128,7 +131,7 @@ class DetailView extends Component {
           </table>
         </div>
         <p data-cy="rating" className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
-      </section>
+      </section>}
 
       {this.state.videoUrl && videoElement}
 
