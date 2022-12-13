@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Rancid Tomatillos
+### Abstract
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a multi-page web React application designed to emulate a movie review aggregator website (à la Rotten Tomatoes/IMDb). Utilizing a set of remote databases, the application presents the user with various movie data (runtime, average rating, budget, revenue, etc.) as well as a movie trailer. The project also includes a Cypress.io acceptance test suite.
 
-## Available Scripts
+### Project Context
 
-In the project directory, you can run:
+This project was created by a fully-remote team of two for the Front-End Engineering program at Turing School of Software & Engineering. Being our first project of the program using React, we were expected to demonstrate best practices for React, along with using Cypress for acceptance testing and React Router. We spent roughly 10 hours each working on the project.
 
-### `npm start`
+## Contributors
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[James Wasmer](https://github.com/jwasmer)\
+[Sam Rice](https://github.com/sam-rice)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Tech
 
-### `npm test`
+- JavaScript ES6
+- React.js
+- React Router
+- CSS3
+- Cypress.io
+- HTML5
+- Webpack
+- Figma
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Methodologies/Goals
 
-### `npm run build`
+- Error handling
+- React hooks
+- Create a user interface that is easy to use and clearly displays information
+- Write modular, reusable code that follows SRP (Single Responsibility Principle)
+- Implement a robust acceptane testing suite
+- Make network requests to retrieve data
+- Demonstrate DRY principles
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Demo
+![demo-gif](https://user-images.githubusercontent.com/108169988/207225158-d6eeb33b-228b-4e88-85c2-8a0e69c7f45c.gif)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Wireframe
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![All Movies View](https://user-images.githubusercontent.com/108169988/207224403-0a49ea44-caee-4348-b65e-535987d4ee25.png)
+![Movie Detail View](https://user-images.githubusercontent.com/108169988/207224234-eb04932e-1366-4101-bd60-5a0f10307ba9.png)
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Installation
+1. Clone this repository to your local machine.
+2. `cd` into the repository on your local machine and run `npm install`, then `npm start` to launch the application's server.
+3. The application should automatically open in your defualt browser (if not, go to [localhost:3000/](localhost:3000/)).
