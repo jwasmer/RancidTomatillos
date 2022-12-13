@@ -9,7 +9,9 @@ class DetailView extends Component {
     super(props)
     this.movieId = this.props.movieId
     this.closeMovie = this.props.closeMovie
-    this.state = {}
+    this.state = {
+      loadingComplete: false
+    }
   }
 
   componentDidMount() {
@@ -28,9 +30,11 @@ class DetailView extends Component {
         const dateYear = releaseDateObject.getFullYear()
 
         this.setState({
+          loadingComplete: true,
           averageRating: data.average_rating,
           backdropPath: data.backdrop_path,
-          budget: data.budget.toLocaleString(),
+          budget: data.budget,
+          displayedBudget: data.budget.toLocaleString(),
           genres: data.genres.join(" | "),
           id: data.id,
           overview: data.overview,
@@ -38,7 +42,8 @@ class DetailView extends Component {
           releaseDate: releaseDateObject,
           dateData: dateData,
           dateYear: dateYear,
-          revenue: data.revenue.toLocaleString(),
+          revenue: data.revenue,
+          displayedRevenue: data.revenue.toLocaleString(),
           runtime: data.runtime,
           title: data.title
         })
@@ -76,7 +81,7 @@ class DetailView extends Component {
       </iframe>
 
     return <>
-      <section 
+      {this.state.loadingComplete && <section 
         data-cy="backdrop"
         className="details-container" 
         style={{
@@ -116,17 +121,17 @@ class DetailView extends Component {
               </tr>
               <tr>
                 <td className="movie-info">budget: </td>
-                <td data-cy="budget" className="movie-info">${this.state.budget}</td>
+                {this.state.budget ? <td data-cy="budget" className="movie-info">${this.state.displayedBudget}</td> : <td data-cy="budget" className="movie-info">unavailable</td>}
               </tr>
               <tr>
                 <td className="movie-info">box office: </td>
-                <td data-cy="revenue" className="movie-info">${this.state.revenue}</td>
+                {this.state.revenue ? <td data-cy="revenue" className="movie-info">${this.state.displayedRevenue}</td> : <td data-cy="revenue" className="movie-info">unavailable</td>}
               </tr>
             </tbody>
           </table>
         </div>
         <p data-cy="rating" className="rating">average rating: {Math.round(this.state.averageRating)} ⭐️</p>
-      </section>
+      </section>}
 
       {this.state.videoUrl && videoElement}
 
